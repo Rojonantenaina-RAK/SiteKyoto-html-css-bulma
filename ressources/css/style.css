@@ -7,5 +7,103 @@
 body {
     width: 100%;
     height: 90vh;
-    background: #333;
+    font-size: 62.5%;
+    background: #F1F1F1;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    width: 100%;
+    height: fit-content;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(to bottom, #333, #626262);
+    position: fixed;
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+}
+
+li.nav-item {
+    height: 6vh;
+    min-height: 3.2rem;
+    display: flex;
+    align-items: center;
+}
+
+a.nav-link {
+    color: #F1F1F1;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+/* "Animation souligné" des liens de navigation */
+a.nav-link::after {
+    content: "";
+    width: 0%;
+    height: 2.5px;
+    border-radius: 30px;
+    background: #F1F1F1;
+    display: block;
+    margin: 0 auto;
+    transition: width 0.2s linear;
+}
+a.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* Bouton hamburger animé */
+.btn-show.nav {
+    display: none;
+}
+
+/* ---------- SECTION-1 : accueil ---------- */
+.section-1 {
+    height: 100vh;
+    min-height: 500px;
+    font-family: sans-serif;
+    background: no-repeat 80% 50% / cover url('../images/accueil-pic-lum-down.jpg');
+    display: flex;
+    flex-flow: wrap column;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
+}
+
+.section-1 img {
+    width: 170px;
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 7rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px black;
+    margin: 0.5rem 0;
+}
+
+.section-1 > p {
+    font-size: 1.7rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px black;
+}
+
+/* Pour tous les boutons "En savoir plus" */
+.btn-en-savoir-plus {
+    color: #F1F1F1;
+    text-decoration: none;
+    border-radius: 50px;
+    background: crimson;
+}
+
+.section-1 > .btn-en-savoir-plus {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+}
+
+.section-1 > * {
+    transform: translateY(-4rem);
 }
