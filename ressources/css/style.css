@@ -107,9 +107,6 @@ header.btn-active .btn-line-3 {
     top: 9px;
     transform: rotate(-45deg);
 }
-header.btn-active ul {
-    height: calc(4.8rem * 4);
-}
 
 
 /* RESPONSIVE (desktop first) */
@@ -129,6 +126,9 @@ header.btn-active ul {
         height: 0;
         flex-direction: column;
         transition: height 0.3s ease-in-out;
+    }
+    header.btn-active ul {
+        height: calc(4.8rem * 4);
     }
     li.nav-item {
         min-height: 4.8rem;
@@ -231,4 +231,102 @@ h1 {
     .section-1 > * {
         transform: translateY(0);
     }
+}
+
+/* ---------- SECTION-2 : Que faire (section asymetrique) ---------- */
+.section-2 {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: grid;
+    grid-gap: 15rem;
+    grid-template-rows: 200px repeat(3, auto);
+    grid-template-columns: 1fr 600px 1fr;
+}
+
+.section-2 > h2 {
+    font-size: 8rem;
+    font-weight: bold;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    text-align: center;
+    align-self: end;
+}
+.block-text {
+    width: 55rem;
+    height: fit-content;
+    min-height: 65rem;
+    padding: 0 1rem 4rem 1rem;
+    color: #F1F1F1;
+    background: #333;
+    border: 1px solid transparent;
+}
+
+.block-text > h3 {
+    margin: 2rem 1rem;
+    font-size: 3.5rem;
+}
+
+
+.block-text > p {
+    margin-bottom: 3.5rem;
+    font-size: 1.6rem;
+}
+
+.block-text .btn-en-savoir-plus {
+    padding: 1.5rem;
+    font-size: 1.6rem;
+}
+
+.img-kyoto {
+    height: 70rem;
+}
+
+.ligne-2 {
+    grid-row: 2 / -1;
+    grid-column: 2 / 3;
+    border-left: 1px solid #333;
+    transform: translateX(750px) scale(2.5);
+    z-index: -1;
+}
+
+.ligne-1-3 {
+    grid-row: 1 / -1;
+    grid-column: 2 / 3;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    transform: scale(2.5);
+    z-index: -1;
+}
+
+/* POSITIONNEMENT DANS LA GRILLE */
+.block-text-1, .img-kyoto-1 {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+.block-text-1 {
+    transform: translateX(-300px);
+}
+.img-kyoto-1 {
+    transform: translate(-90px, 80px);
+}
+.block-text-2, .img-kyoto-2 {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+.block-text-2 {
+    transform: translateX(300px);
+}
+.img-kyoto-2 {
+    transform: translate(90px, 80px);
+}
+.block-text-3, .img-kyoto-3 {
+    grid-row: 4 / 5;
+    grid-column: 2 / 3;
+}
+.block-text-3 {
+    transform: translateX(-300px);
+}
+.img-kyoto-3 {
+    transform: translate(-90px, 80px);
 }
