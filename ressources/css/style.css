@@ -4,10 +4,13 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body {
     width: 100%;
     height: 90vh;
-    font-size: 62.5%;
     background: #F1F1F1;
 }
 
@@ -15,28 +18,36 @@ body {
 header {
     width: 100%;
     height: fit-content;
-    font-size: 2rem;
+    font-size: 3.2rem;
     font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient(to bottom, #333, #626262);
     position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: flex-start;
 }
 
 header ul {
     display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
     justify-content: center;
+    position: relative;
 }
 
 li.nav-item {
     height: 6vh;
-    min-height: 3.2rem;
+    min-height: 5.12rem;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 a.nav-link {
     color: #F1F1F1;
     text-decoration: none;
-    margin: 0 1rem;
+    margin: 0 1.6rem;
 }
 /* "Animation souligné" des liens de navigation */
 a.nav-link::after {
@@ -53,16 +64,91 @@ a.nav-link:hover::after {
     width: 100%;
 }
 
-
 /* Bouton hamburger animé */
-.btn-show.nav {
+.btn-container {
+    display: none;
+    height: 4.8rem;
+    
+}
+.btn-show-nav {
+    width: 20px;
+    height: 20px;
+    margin-right: 1.6rem;
+    cursor: pointer;
+    position: relative;
+}
+.btn-line {
+    width: 100%;
+    height: 2px;
+    background: #F1F1F1;
+    border-radius: 10px;
+    position: absolute;
+    transition: all 0.4s ease-in-out, display 0.4s linear;
+}
+.btn-line-1 {
+    top: 0;
+}
+.btn-line-2 {
+    top: 9px;
+}
+.btn-line-3 {
+    top: 18px;
+}
+
+/* Lorsque le bouton est active */
+header.btn-active .btn-line-1 {
+    top: 9px;
+    transform: rotate(45deg);
+}
+header.btn-active .btn-line-2 {
     display: none;
 }
+header.btn-active .btn-line-3 {
+    top: 9px;
+    transform: rotate(-45deg);
+}
+header.btn-active ul {
+    height: calc(4.8rem * 4);
+}
+
+
+/* RESPONSIVE (desktop first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    header {
+        font-size: 2.56rem;
+    }
+    a.nav-link::after {
+        height: 2.2px;
+    }
+}
+@media screen and (max-width:610px) {
+    header {
+        font-size: 1.76rem;
+    }
+    header ul {
+        height: 0;
+        flex-direction: column;
+        transition: height 0.3s ease-in-out;
+    }
+    li.nav-item {
+        min-height: 4.8rem;
+    }
+    a.nav-link::after {
+        height: 1px;
+    }
+    .btn-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}
+
 
 /* ---------- SECTION-1 : accueil ---------- */
 .section-1 {
     height: 100vh;
-    min-height: 500px;
+    min-height: 550px;
+    padding-top: 5rem;
     font-family: sans-serif;
     background: no-repeat 80% 50% / cover url('../images/accueil-pic-lum-down.jpg');
     display: flex;
@@ -78,14 +164,14 @@ a.nav-link:hover::after {
 }
 
 h1 {
-    font-size: 7rem;
+    font-size: 11.2rem;
     font-weight: bold;
     text-shadow: 0 0 10px black;
-    margin: 0.5rem 0;
+    margin: 0.8rem 0;
 }
 
 .section-1 > p {
-    font-size: 1.7rem;
+    font-size: 2.72rem;
     font-weight: bold;
     text-shadow: 0 0 10px black;
 }
@@ -96,14 +182,53 @@ h1 {
     text-decoration: none;
     border-radius: 50px;
     background: crimson;
+    transition: background 0.1s ease-in-out;
+}
+.btn-en-savoir-plus:hover {
+    background: rgb(175, 16, 48);
 }
 
 .section-1 > .btn-en-savoir-plus {
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    padding: 1.2rem 2rem;
+    font-size: 2.08rem;
+    margin-top: 3.2rem;
+    padding: 1.92rem 3.2rem;
 }
 
 .section-1 > * {
-    transform: translateY(-4rem);
+    transform: translateY(-3.2rem);
+}
+
+/* RESPONSIVE (desktop first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    .section-1 img {
+        width: 120px;
+    }
+    h1 {
+        font-size: 6.4rem;
+    }
+    .section-1 > p {
+        font-size: 1.92rem;
+    }
+    .section-1 > .btn-en-savoir-plus {
+        font-size: 1.6rem;
+        padding: 1.6rem;
+    }
+}
+@media screen and (max-width:610px) {
+    .section-1 img {
+        width: 85px;
+    }
+    h1 {
+        font-size: 3.2rem;
+    }
+    .section-1 > p {
+        font-size: 1.28rem;
+    }
+    .section-1 > .btn-en-savoir-plus {
+        font-size: 1.28rem;
+        padding: 0.96rem 1.28rem;
+    }
+    .section-1 > * {
+        transform: translateY(0);
+    }
 }
