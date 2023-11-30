@@ -10,7 +10,6 @@ html {
 
 body {
     width: 100%;
-    height: 90vh;
     background: #F1F1F1;
 }
 
@@ -240,7 +239,7 @@ h1 {
     overflow: hidden;
     display: grid;
     grid-gap: 15rem;
-    grid-template-rows: 200px repeat(3, auto);
+    grid-template-rows: 200px repeat(3, auto) 10rem;
     grid-template-columns: 1fr 600px 1fr;
 }
 
@@ -255,22 +254,40 @@ h1 {
 .block-text {
     width: 55rem;
     height: fit-content;
-    min-height: 65rem;
-    padding: 0 1rem 4rem 1rem;
+    min-height: 70rem;
+    padding: 0 1.5rem 4rem 1.5rem;
     color: #F1F1F1;
     background: #333;
     border: 1px solid transparent;
+    position: relative;
 }
 
 .block-text > h3 {
     margin: 2rem 1rem;
-    font-size: 3.5rem;
+    font-size: 4rem;
+    font-weight: bold;
 }
 
 
 .block-text > p {
     margin-bottom: 3.5rem;
     font-size: 1.6rem;
+    width: 33%;
+}
+
+.block-text-2 {
+    position: relative;
+}
+
+.block-text-2 > p {
+    position: absolute;
+    right: 1.5rem;
+}
+
+.block-text-2 .btn-en-savoir-plus {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 10rem;
 }
 
 .block-text .btn-en-savoir-plus {
@@ -279,7 +296,10 @@ h1 {
 }
 
 .img-kyoto {
+    width: 55rem;
     height: 70rem;
+    position: relative;
+    object-fit: cover;
 }
 
 .ligne-2 {
@@ -295,7 +315,7 @@ h1 {
     grid-column: 2 / 3;
     border-left: 1px solid #333;
     border-right: 1px solid #333;
-    transform: scale(2.5);
+    transform: scale(2.25);
     z-index: -1;
 }
 
@@ -318,7 +338,7 @@ h1 {
     transform: translateX(300px);
 }
 .img-kyoto-2 {
-    transform: translate(90px, 80px);
+    transform: translate(75px, 80px);
 }
 .block-text-3, .img-kyoto-3 {
     grid-row: 4 / 5;
@@ -329,4 +349,411 @@ h1 {
 }
 .img-kyoto-3 {
     transform: translate(-90px, 80px);
+}
+
+/* RESPONSIVE (desktop first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    .section-2 > h2 {
+        font-size: 5rem;
+    }
+    .section-2 h3 {
+        font-size: 2.5rem;
+    }
+    .section-2 .block-text p {
+        font-size: 1.6rem;
+    }
+}
+@media screen and (max-width:610px) {
+    .section-2 > h2 {
+        font-size: 3.5rem;
+    }
+    .section-2 h3 {
+        font-size: 2rem;
+    }
+    .section-2 .block-text p {
+        font-size: 1.6rem;
+    }
+}
+@media screen and (max-width:calc(550rem / 16)) {
+    .block-text, .img-kyoto {
+        width: 100%;
+    }
+    .img-kyoto {
+        height: 50rem;
+    }
+}
+@media screen and (max-width:1350px) {
+    .section-2 {
+        grid-template-rows: 150px repeat(6, auto) 10rem;
+        grid-template-columns: 100%;
+        grid-gap: 0;
+        justify-items: center;
+    }
+    .section-2 > h2 {
+        align-self: center;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+    .block-text {
+        min-height: 0;
+    }
+    .block-text-1 {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    }
+    .img-kyoto-1 {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+    }
+    .block-text-2 {
+        grid-row: 4 / 5;
+        grid-column: 1 / 2;
+    }
+    .img-kyoto-2 {
+        grid-row: 5 / 6;
+        grid-column: 1 / 2;
+    }
+    .block-text-3 {
+        grid-row: 6 / 7;
+        grid-column: 1 / 2;
+    }
+    .img-kyoto-3 {
+        grid-row: 7 / 8;
+        grid-column: 1 / 2;
+    }
+    .block-text, .img-kyoto {
+        transform: translate(0);
+    }
+    .block-text .btn-en-savoir-plus {
+        margin: 0 auto;
+    }
+    .block-text-2 > p {
+        position: static;
+    }
+    .block-text-2 .btn-en-savoir-plus {
+        position: static;
+    }
+    .block-text p {
+        width: 100%;
+    }
+    .ligne-2 {
+        display: none;
+    }
+    .ligne-1-3 {
+        width: 80rem;
+        grid-row: 1 / -1;
+        grid-column: 1 / 2;
+        transform: scale(1);
+    }
+}
+
+/* ---------- Transition : Partez a l'aventure ---------- */
+.transition-section2-section3 {
+    width: 100%;
+    height: 27.5rem;
+    color: #F1F1F1;
+    font-size: 4rem;
+    font-weight: bold;
+    background: no-repeat center / cover url('../images/parallax-large-flou.jpg');
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* RESPONSIVE (desktop first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    .transition-section2-section3 p {
+        font-size: 3.5rem;
+    }
+}
+@media screen and (max-width:610px) {
+    .transition-section2-section3 {
+        height: 20rem;
+    }
+    .transition-section2-section3 p {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* ---------- SECTION-3 : Tarif ---------- */
+
+.section-3 {
+    width: 100%;
+    height: auto;
+    padding-bottom: 6rem;
+    border-bottom: 1px dotted #333;
+}
+
+.section-3 h2 {
+    font-size: 6rem;
+    margin: 12rem auto 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.section-3 hr {
+    width: 25rem;
+    margin: 0 auto 12rem;
+}
+
+.section-3 .carte-container {
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: center;
+}
+
+.carte {
+    width: 35rem;
+    margin: 0 2rem 3rem;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.carte h3 {
+    padding: 2.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0 100%);
+}
+
+.carte-1 h3 {
+    background: #ffafbf;
+}
+.carte-2 h3 {
+    background: #ff5073;
+}
+.carte-3 h3 {
+    background: #ff0033;
+}
+
+.carte span.prix {
+    padding: 1.75rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.carte p {
+    padding: 1.5rem 1rem;
+    font-size: 1.6rem;
+    text-align: left;
+    border-top: 1px solid rgb(194, 197, 194);
+}
+.carte p:last-of-type {
+    border-bottom: 1px solid #333;
+}
+
+.carte p:nth-child(2n+1) {
+    background: rgba(195, 195, 195, 0.2);
+}
+
+.carte .btn-reservez-un-guide {
+    margin: 1.75rem auto;
+    padding: 1rem 2rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #333;
+    text-decoration: none;
+    border: 1.5px solid #333;
+    border-radius: 3rem;
+    text-align: center;
+    transition: background 0.2s ease-in-out;
+}
+
+.carte .btn-reservez-un-guide:hover {
+    color: #FFF;
+    background: #333;
+}
+
+.carte:hover {
+    transform: translateY(-2rem);
+}
+
+/* RESPONSIVE (desktop first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    .section-3 h2 {
+        font-size:5rem;
+        margin-top: 5rem;
+    }
+    .section-3 hr {
+        margin-bottom: 7rem;
+    }
+}
+@media screen and (max-width:610px) {
+    .section-3 h2 {
+        font-size: 2.5rem;
+        margin-top: 3rem;
+    }
+    .section-3 hr {
+        margin-bottom: 5rem;
+    }
+    .carte h3 {
+        padding: 1.75rem;
+        font-size: 2.25rem;
+    }
+    .carte span.prix {
+        padding: 0.75rem;
+        font-size: 1.75rem;
+    }
+    .carte p {
+        padding: 1rem;
+        font-size: 1.35rem;
+    }
+    .carte .btn-reservez-un-guide {
+        font-size: 1.5rem;
+        padding: 0.75rem;
+        margin: 1rem auto;
+    }
+}
+
+
+/* ---------- SECTION-3 : Tarif ---------- */
+.section-4 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-4 h2 {
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.section-4 .form-container {
+    width: 80%;
+}
+
+.section-4 form label {
+    display: block;
+    font-size: 1.6rem;
+    color: #666;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section-4 form input {
+    width: 100%;
+    display: block;
+    font-size: 1.6rem;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #626262;
+    background: transparent;
+}
+
+.section-4 .group-form {
+    margin: 3rem 0;
+}
+
+.section-4 .text-area-container {
+    width: 100%;
+    height: auto;
+}
+
+.section-4 textarea {
+    width: 100%;
+    height: 10rem;
+    padding: 0.5rem;
+    resize: none;
+    outline: none;
+    border: 2px solid #626262;
+    background: transparent;
+    font-size: 1.6rem;
+}
+
+.section-4 .btn-submit-form {
+    margin: 3rem 0 8rem;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 5rem;
+    background: linear-gradient(to right, transparent 50%, #333 50%, #626262);
+    background-size: 202%;
+    transition: background 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+.section-4 .btn-submit-form:hover {
+    color: #F1F1F1;
+    background-position: 100%;
+}
+
+/* RESPONSIVE (mobile first) */
+@media screen and (min-width:610px) and (max-width:1100px) {
+    .section-4 h2 {
+        margin: 7rem 0 4rem;
+        font-size: 5rem;
+    }
+    .section-4 .group-form {
+        margin: 6rem 0;
+    }
+    .section-4 form label {
+        font-size: 2.25rem;
+    }
+    .section-4 form input {
+        font-size: 2.25rem;
+    }
+    .section-4 textarea {
+        font-size: 2.25rem;
+        height: 20rem;
+    }
+    .section-4 .btn-submit-form {
+        margin: 5rem 0 8rem;
+        padding: 1rem 2rem;
+        font-size: 2.5rem;
+        
+    }
+
+}
+
+@media screen and (min-width:1100px) {
+    .section-4 h2 {
+        margin: 7rem 0 4rem;
+        font-size: 6rem;
+    }
+    .section-4 .form-container {
+        width: 65%;
+    }
+    .section-4 .group-form {
+        margin: 6rem 0;
+    }
+    .section-4 form label {
+        font-size: 2.25rem;
+    }
+    .section-4 form input {
+        font-size: 2.25rem;
+    }
+    .section-4 textarea {
+        font-size: 2.25rem;
+        height: 20rem;
+    }
+    .section-4 .btn-submit-form {
+        margin: 5rem 0 8rem;
+        padding: 1rem 3rem;
+        font-size: 3rem;
+        
+    }
+}
+
+/* ---------- FOOTER -------- */
+footer {
+    width: 100%;
+    height: 4rem;
+    font-size: 1.6rem;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (max-width:610px) {
+    footer {
+        font-size: 1.3rem;
+    }
 }
